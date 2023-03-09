@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+
+3.times do
+  my_category = Category.new(title: Faker::Book.genre)
+  my_category.save
+  3.times do
+    my_task = Task.new(title: Faker::Book.title,
+                      deadline: Faker::Date.forward,
+                      image: Faker::Avatar.image)
+    my_task.category_id = my_category.id
+    my_task.save
+  end
+end
