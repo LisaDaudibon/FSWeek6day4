@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Category.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('categories')
+Task.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('tasks')
+Email.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('emails')
 
 require 'faker'
 
@@ -19,7 +25,7 @@ require 'faker'
   end
 end
 
-3.times do
-  my_email = Email.create(object: Faker::ChuckNorris.fact,
+5.times do
+  my_email = Email.create(object: Faker::Book.title,
                         body: Faker::Hipster.paragraph)
 end

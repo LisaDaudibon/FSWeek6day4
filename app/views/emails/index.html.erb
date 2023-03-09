@@ -1,15 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Emails</h1>
+<div class="container">
+  <p class="h1">Emails</p>
+</div>
+
+<div class="container">
+  <button type="button" class="btn btn-info"><%= link_to "New email", new_email_path %>
+  </button>
+</div>
 
 <div id="emails">
   <% @emails.each do |email| %>
     <%= render email %>
-    <p>
-      <%= link_to "Show this email", email %>
-    </p>
+    <div class="container text-center">
+      <p>
+        <%= link_to "Show this email", email %>
+      </p>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New email", new_email_path %>
 
