@@ -12,10 +12,14 @@
   <% end %>
 
   <div>
-    <%= form.label :object, style: "display: block" %>
-    <%= form.text_area :object %>
-  </div>
+    <%= form.label :object %>
+    <%= form.text_field :object %>
+  <%# </div>
 
+  <div> %>
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </div>
 
   <div>
     <%= form.submit %>

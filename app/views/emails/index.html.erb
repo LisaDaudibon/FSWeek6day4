@@ -1,5 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
+<%=turbo_stream_from "emails" %>
 <div class="container">
   <p class="h1">Emails</p>
 </div>
@@ -11,10 +12,6 @@
   </button>
   <% end %>
 </div>
-<%# <%= link_to "View profile", user_path(@user), data: { turbo_action: "replace" } %>
-
-<%# ruby <% @tasks.each do |task| <div class="task"> <%= task.name %> 
-<%# <%= link_to "Mark as done", mark_as_done_task_path(task), data: { turbolinks: "replace" } </div> <% end %>
 
 <div id="emails">
   <% @emails.each do |email| %>
@@ -26,4 +23,3 @@
     </div>
   <% end %>
 </div>
-

@@ -28,9 +28,8 @@ class EmailsController < ApplicationController
       if @email.save
         format.html { redirect_to email_url(@email), notice: "Email was successfully created." }
       else
-        format-turbo-stream {
-          render turbo_stream: turbo_stream.replace (@email, partial: "emails/form", locals: {email: @email})
-        }
+        # format.turbo-stream {
+          # render turbo_stream: turbo_stream.replace (@email, partial: "email/form", locals: {email: @email})}
         format.html { render :new, status: :unprocessable_entity }
       end
     end
