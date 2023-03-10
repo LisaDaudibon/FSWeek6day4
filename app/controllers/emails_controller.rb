@@ -4,6 +4,7 @@ class EmailsController < ApplicationController
   # GET /emails or /emails.json
   def index
     @emails = Email.all
+    @email = Email.new
   end
 
   # GET /emails/1 or /emails/1.json
@@ -26,10 +27,11 @@ class EmailsController < ApplicationController
     respond_to do |format|
       if @email.save
         format.html { redirect_to email_url(@email), notice: "Email was successfully created." }
-        format.json { render :show, status: :created, location: @email }
       else
+        format-turbo-stream {
+          render turbo_stream: turbo_stream.replace (@email, partial: "emails/form", locals: {email: @email})
+        }
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @email.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -1,0 +1,2 @@
+class AddAuthenticityTokenToEmail < ApplicationRecord
+end

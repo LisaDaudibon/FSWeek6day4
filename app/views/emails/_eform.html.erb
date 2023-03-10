@@ -1,0 +1,18 @@
+
+<div class="form">
+  <%= form_tag(emails_path, method: :post, class: "form", remote: true) do %>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="Object">Object
+    <%= text_area_tag  :object %>
+
+    <%= submit_tag 'create', :name => 'commit'%>
+  <% end %>
+</div>
+
+   <label for="Body">Body
+    <%= text_field_tag  :body %>
+
+      <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>

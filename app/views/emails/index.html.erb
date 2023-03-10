@@ -4,10 +4,17 @@
   <p class="h1">Emails</p>
 </div>
 
-<div class="container">
-  <button type="button" class="btn btn-info"><%= link_to "New email", new_email_path %>
+<div class="container"> 
+  <%= turbo_frame_tag "email_form" do%>
+  <button type="button" class="btn btn-info"><%= render 'form',email: @email %>
+  <%# <%= link_to "New email", new_email_path %>
   </button>
+  <% end %>
 </div>
+<%# <%= link_to "View profile", user_path(@user), data: { turbo_action: "replace" } %>
+
+<%# ruby <% @tasks.each do |task| <div class="task"> <%= task.name %> 
+<%# <%= link_to "Mark as done", mark_as_done_task_path(task), data: { turbolinks: "replace" } </div> <% end %>
 
 <div id="emails">
   <% @emails.each do |email| %>
